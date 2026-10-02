@@ -1,0 +1,9 @@
+services:
+  stock-postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: 'stock'
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'admin'
+    ports:
+      - "5432:5432"
