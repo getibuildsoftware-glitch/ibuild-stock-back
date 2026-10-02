@@ -1,5 +1,8 @@
 package com.ibuildsoftware.stock.enun;
 
+import lombok.Getter;
+
+@Getter
 public enum PlanType {
 
     FREE("Free Plan"),
@@ -12,7 +15,4 @@ public enum PlanType {
         this.description = description;
     }
 
-    public String getDescription() {
-        return description;
-    }
 }
