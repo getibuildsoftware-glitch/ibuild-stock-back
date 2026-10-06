@@ -8,7 +8,8 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-@Table(name = "company")
+@Table(name = "company", uniqueConstraints = {
+        @UniqueConstraint(name = "unique_person_company", columnNames = "person_id")})
 @SequenceGenerator(name = "seq_company", sequenceName = "seq_company", allocationSize = 1, initialValue = 1)
 public class Company {
 
@@ -16,7 +17,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_company")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plan_id",
             nullable = false,
             foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "plan_fk"))
@@ -41,5 +42,11 @@ public class Company {
 
     @Column(nullable = true)
     private LocalDate planValidity;
+
+    @JoinColumn(name = "person_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "person_fk"))
+    @OneToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "The person should be informed")
+    private Person person;
 
 }
