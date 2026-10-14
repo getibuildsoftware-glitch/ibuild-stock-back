@@ -87,8 +87,8 @@ public class Person {
     /*regarding multitenancy*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id",
-            nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
+        nullable = false,
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
     @NotNull(message = "The company should be informed")
     private Company company;
 

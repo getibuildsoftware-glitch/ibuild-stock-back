@@ -54,16 +54,16 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id",
-            nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "category_fk"))
+        nullable = false,
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "category_fk"))
     @NotNull(message = "The category should be informed")
     private Category category;
 
     /*regarding multitenancy*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id",
-            nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
+        nullable = false,
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
     @NotNull(message = "The company should be informed")
     private Company company;
 }

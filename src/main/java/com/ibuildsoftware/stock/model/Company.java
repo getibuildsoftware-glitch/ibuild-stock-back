@@ -19,8 +19,8 @@ public class Company {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plan_id",
-            nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "plan_fk"))
+        nullable = false,
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "plan_fk"))
     @NotNull(message = "The plan should be informed")
     private Plan plan;
 
@@ -44,7 +44,7 @@ public class Company {
     private LocalDate planValidity;
 
     @JoinColumn(name = "person_id", nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "person_fk"))
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "person_fk"))
     @OneToOne(fetch = FetchType.LAZY)
     @NotNull(message = "The person should be informed")
     private Person person;

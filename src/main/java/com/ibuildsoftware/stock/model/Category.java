@@ -22,7 +22,7 @@ public class Category {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id",
-            nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
+        nullable = false,
+        foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "company_fk"))
     private Company company;
 }
